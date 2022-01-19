@@ -10,7 +10,7 @@ body {
   background-color: #fefefe;
 }
 
-.heading { position: relative; height: 99vh; overflow: hidden; background-color: white; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; z-index: 1000; }
+.heading { position: relative; height: 99vh; overflow: hidden; background-color: #000000; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; z-index: 1000; }
 
 .fixed-content {
   position: absolute;
@@ -21,6 +21,7 @@ body {
 .heading h1 {
   font-size: 10vw;
   z-index: 3;
+  color: white;
 }
 
 .heading h2 {
@@ -28,6 +29,7 @@ body {
 }
 
 #cursor {
+  color: white;
   animation: cursor-blink 0.6s steps(2) infinite;
 }
 
@@ -48,6 +50,21 @@ body {
   -ms-animation: rotating 20s linear infinite;
   -o-animation: rotating 20s linear infinite;
   animation: rotating 20s linear infinite;
+}
+
+.blob-type-1 {
+  animation: mv-pattern1 20s linear infinite;
+  animation-direction: alternate;
+}
+
+.blob-type-2 {
+  animation: mv-pattern2 20s linear infinite;
+  animation-direction: alternate;
+}
+
+.blob-type-3 {
+  animation: mv-pattern3 20s linear infinite;
+  animation-direction: alternate;
 }
 
 .blob-header path {
@@ -74,6 +91,36 @@ body {
   }
 }
 
+@keyframes mv-pattern2 {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  
+  to {
+    transform: translate(10vw, -25vh) rotate(360deg);
+  }
+}
+
+@keyframes mv-pattern1 {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  
+  to {
+    transform: translate(-10vw, -5vh) rotate(360deg);
+  }
+}
+
+@keyframes mv-pattern3 {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  
+  to {
+    transform: translate(20vw, 5vh) rotate(-360deg);
+  }
+}
+
 .content-wrapper {
   min-height: 60vh;
   border-bottom-left-radius: 15px;
@@ -86,4 +133,19 @@ body {
 footer {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+#nav-arrow {
+  fill: #ffffff;
+  position: absolute;
+  bottom: 5vh;
+  left: 47.5vw;
+  width: 5vw;
+  height: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .heading h1 { font-size: 17.5vw; }
+  .blob-header { width: 30vw; }
+  #nav-arrow { width: 8vw; left: 46vw; }
 }
