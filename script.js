@@ -43,3 +43,12 @@ function nextSkill() {
   }, initialLength * 50 + 100);
   setTimeout(nextSkill, (initialLength * 50) + (skills[skillIx][0].length * 50) + 2500);
 }
+
+document.addEventListener('scroll',
+  function() {
+    var slider = document.querySelector(".image-slider").getBoundingClientRect();
+    if (slider.y + slider.height < window.innerHeight && slider.y * -1 < slider.height) {
+      document.querySelector(".image-slider").scrollTo(document.querySelector(".image-slider").scrollWidth * ((window.innerHeight - (slider.y + slider.height)) / window.innerHeight), 0);
+    }
+  }
+);

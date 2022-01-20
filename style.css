@@ -10,7 +10,7 @@ body {
   background-color: #fefefe;
 }
 
-.heading { position: relative; height: 99vh; overflow: hidden; background-color: #000000; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; z-index: 1000; }
+.heading { position: relative; height: 90vh; overflow: hidden; background-color: #000000; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; z-index: 1000; }
 
 .fixed-content {
   position: absolute;
@@ -19,7 +19,7 @@ body {
 }
 
 .heading h1 {
-  font-size: 12.5vw;
+  font-size: calc(14vh);
   z-index: 3;
   color: white;
 }
@@ -72,6 +72,28 @@ body {
   stroke-width: 3px;
   stroke-dasharray: 5,5;
   stroke-linejoin: round;
+}
+
+.image-slider {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  height: 50vh;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.image-slider::-webkit-scrollbar {
+  display: none;
+}
+.image-slider li {
+  display: inline;
+  width: 150px;
+  height: 150px;
+}
+.image-slider li img {
+  height: 50vh;
+  width: auto;
 }
 
 @keyframes rotating {
@@ -127,12 +149,38 @@ body {
   border-bottom-right-radius: 15px;
   position: relative;
   margin-top: -15px;
-  box-shadow: 0 4px 2px -2px #eeeeee;
+  padding-top: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.content-small {
+  min-height: unset;
+  padding-bottom: 20px;
+}
+
+.content-wrapper div {
+  flex: 1;
+  margin: 10px;
+}
+
+.content-wrapper img {
+  margin-left: 10%;
+  margin-right: 10%;
+  max-width: 80%;
+  height: auto;
 }
 
 footer {
   padding-top: 10px;
   padding-bottom: 10px;
+  background-color: black;
+}
+
+footer p {
+  color: white;
 }
 
 #nav-arrow {
@@ -145,12 +193,13 @@ footer {
 }
 
 @media only screen and (max-width: 900px) {
-  .heading h1 { font-size: 18.5vw; }
   .blob-header { width: 30vw; }
   #nav-arrow { width: 8vw; left: 46vw; }
+  .content-wrapper div:nth-child(2) {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1300px) {
-  .heading h1 { font-size: 10vw; }
   #nav-arrow { width: 3vw; left: 48.5vw; }
 }
